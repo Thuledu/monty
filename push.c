@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include "monty.h"
-#define STACK_SIZE 100
+
 
 int stack[STACK_SIZE];
 int top = -1;
@@ -35,13 +34,4 @@ void push_opcode(const char *arg) {
     }
     int value = atoi(arg);
     push_to_stack(value);
-}
-
-int main() {
-    
-    push_opcode("1");
-    push_opcode("2");
-    push_opcode("3");
-    
-    return 0;
 }

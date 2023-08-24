@@ -1,6 +1,11 @@
 #ifndef MONTY_H_
 #define MONTY_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#define MAX_STACK_SIZE 100
+#define STACK_SIZE 100
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,6 +41,5 @@ typedef struct instruction_s
 void push_to_stack(int value);
 void push_opcode(const char *arg);
 void pall_opcode();
-int main();
 
 #endif /*MONTY_H_*/
