@@ -13,16 +13,17 @@ void push_opcode(stack_t **head, unsigned int counter)
 	int n;
 	int k = 0, flag = 0;
 
-	if (!b.arg)
+
+	if (!bus.arg)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", counter);
 		exit(EXIT_FAILURE);
 	}
-	if (b.arg[0] == '-')
+	if (bus.arg[0] == '-')
 		k++;
-	for (; b.arg[k] != '\0'; k++)
+	for (; bus.arg[k] != '\0'; k++)
 	{
-		if (b.arg[k] > '9' || b.arg[] < '0')
+		if (bus.arg[k] > '9' || bus.arg[k] < '0')
 		{
 			flag = 1;
 			break;
@@ -34,8 +35,8 @@ void push_opcode(stack_t **head, unsigned int counter)
 		exit(EXIT_FAILURE);
 	}
 
-	n = atoi(b.arg);
-	if (b.lifi == 0)
+	n = atoi(bus.arg);
+	if (bus.lifi == 0)
 		addnode(head, n);
 	else
 		addqueue(head, n);
