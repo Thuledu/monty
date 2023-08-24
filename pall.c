@@ -1,15 +1,21 @@
 #include <stdio.h>
 #include "monty.h"
 
-int stack[MAX_STACK_SIZE];
-int top = -1;
+/**
+ * pall_opcode - prints the stack
+ * @head: the stack head
+ * @counter: the unused parameter
+ * Return: void (Success)
+ */
+void pall_opcode(stack_t **head, unsigned int counter)
+{
+	stack_t *current = *head;
 
-void pall_opcode() {
-    if (top == -1) {
-        return;
-    }
+	(void)counter;
 
-    for (int i = top; i >= 0; i--) {
-        printf("%d\n", stack[i]);
-    }
+	while (current != NULL)
+	{
+		printf("%d\n", current->n);
+		current = current->next;
+	}
 }
