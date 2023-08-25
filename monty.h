@@ -38,8 +38,33 @@ typedef struct instruction_s
 } instruction_t; 
 
 
+typedef struct {
+    int stack[STACK_SIZE];
+    int top;
+} Stack;
+
+Stack* createStack() {
+    Stack* newStack = (Stack*)malloc(sizeof(Stack));
+    newStack->top = -1;
+    return newStack;
+}
+
 void push_opcode(stack_t **head, unsigned int counter);
 void pall_opcode(stack_t **head, unsigned int counter);
 
+void swap(Stack* stack);
+int isEmpty(Stack* stack);
+void push(Stack* stack, int value);
+int pop(Stack* stack);
+
+/*
+void f_pop(stack_t **head, unsigned int counter);
+int process_instruction(char *instruction, stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, int value);
+void pop(stack_t **stack);
+void add(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t **stack);
+int is_numeric(const char *str);
+*/
 
 #endif /*MONTY_H_*/
