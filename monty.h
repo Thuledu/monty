@@ -44,7 +44,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t; 
 
-
+/*
 typedef struct {
     int stack[STACK_SIZE];
     int top;
@@ -55,7 +55,17 @@ Stack* createStack() {
     newStack->top = -1;
     return newStack;
 }
+*/
 
+
+/**
+ * struct bus_s - variables -args, file, line content
+ * @arg: value
+ * @file: pointer to monty file
+ * @content: line content
+ * @lifi: flag change stack <-> queue
+ * Description: carries values through the program
+ */
 typedef struct bus_p
 {
 	char *content;
@@ -66,31 +76,19 @@ typedef struct bus_p
 extern bus_m bus;
 
 
-typedef struct Node {
-    int data;
-    struct Node* top;
-    struct Node* next;
-} Node;
-
-
-/*
-void push_opcode(stack_t **head, unsigned int counter);
-void pall_opcode(stack_t **head, unsigned int counter);*/
+void push_opcode(stack_t **head, unsigned int number);
+void pall_opcode(stack_t **head, unsigned int number);
+void pint_opcode(stack_t **head, unsigned int number);
 void free_stack(stack_t *head);
-int stack_is_empty(stack_t *head);
-void swap(Stack* stack);
-int isEmpty(Stack* stack);
-/*void push(Stack* stack, int value);*/
-int pop(Stack* stack);
-
-/*
-void f_pop(stack_t **head, unsigned int counter);
-int process_instruction(char *instruction, stack_t **stack, unsigned int line_number);
-void push(stack_t **stack, int value);
-void pop(stack_t **stack);
-void add(stack_t **stack, unsigned int line_number);
-void free_stack(stack_t **stack);
-int is_numeric(const char *str);
-*/
+void pop_opcode(stack_t **head, unsigned int counter);
+void swap_opcode(stack_t **head, unsigned int counter);
+void add_opcode(stack_t **head, unsigned int counter);
+void nop_opcode(stack_t **head, unsigned int counter);
+void sub_opcode(stack_t **head, unsigned int counter);
+void div_opcode(stack_t **head, unsigned int counter);
+void mul_opcode(stack_t **head, unsigned int counter);
+void mod_opcode(stack_t **head, unsigned int counter);
+void addnode(stack_t **head, int n);
+void addqueue(stack_t **head, int n);
 
 #endif /*MONTY_H_*/

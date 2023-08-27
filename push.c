@@ -1,37 +1,40 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
 #include "monty.h"
+#include <stdio.h>
 
-void push(int value) {
-    printf("Pushed value: %d\n", value);
+/**
+ * push_opcode - adds nodes to the stack
+ * @head: the stack head
+ * @counter: the line_number
+ * Return: void
+*/
+void push_opcode(stack_t **head, unsigned int counter)
+{
+	int n;
+	int k = 0, flag = 0;
+
+	if (bus.arg)
+	{
+		if (bus.arg[0] == '-')
+			k++;
+		for (; bus.arg[k] != '\0'; k++)
+		{
+			if (bus.arg[k] > 57 || bus.arg[k] < 48)
+				flag = 1; }
+		if (flag == 1)
+		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+			fclose(bus.file);
+			free(bus.content);
+			free_stack(*head);
+			exit(EXIT_FAILURE); }}
+	else
+	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE); }
+	n = atoi(bus.arg);
+	if (bus.lifi == 0){
+		addnode(head, n);}
+	else {
+		addqueue(head, n);}
 }
-
-int main(int argc, char *argv[]) {
-
-	char *endptr = NULL;
-	int value;
-
-	if (argc != 2) {
-        fprintf(stderr, "Error: L%d: Usage: %s <int>\n", __LINE__, argv[0]);
-        exit(EXIT_FAILURE);
-    }
-    
-
-    if (!isdigit(argv[1][0])) {
-        fprintf(stderr, "Error: L%d: Usage: %s integer\n", __LINE__, argv[0]);
-        exit(EXIT_FAILURE);
-    }
-
-    value = strtol(argv[1], &endptr, 10);
-
-    if (*endptr != '\0') {
-        fprintf(stderr, "Error: L%d: Usage: %s integer\n", __LINE__, argv[0]);
-        exit(EXIT_FAILURE);
-    }
-
-    push(value);
-
-    return 0;
-}
-

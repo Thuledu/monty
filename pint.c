@@ -1,14 +1,15 @@
 #include "monty.h"
+#include <stdio.h>
 
 /**
- * f_pint - program that prints the value at the top of the stack
+ * pint_opcode - program that prints the value at the top of the stack
  * @head: the stack head
  * @counter: the line number
  * Return: void
  */
-void f_pint(stack_t **head, unsigned int counter) {
+void pint_opcode(stack_t **head, unsigned int counter) {
     
-    if (stack_is_empty(*head)) {
+    if (head == NULL) {
         fprintf(stderr, "L%d: can't pint, stack empty\n", counter);
         fclose(bus.file);
         free(bus.content);

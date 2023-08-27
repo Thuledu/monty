@@ -2,16 +2,16 @@
 #include <stdio.h>
 
 /**
- * add_opcode - program that adds the top two elements of the stack.
+ * div_opcode - divides the top two elements of the stack.
  * @head: stack the head
  * @counter: the line number
  * Return: void
 */
-void add_opcode(stack_t **head, unsigned int counter)
+void div_opcode(stack_t **head, unsigned int counter)
 {
 	stack_t *head;
-	int ax;
 	int length = 0;
+	int ax;
 
 	t = *head;
 	while (t)
@@ -21,14 +21,22 @@ void add_opcode(stack_t **head, unsigned int counter)
 	}
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't div, stack too short\n", counter);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	t = *head;
-	ax = t->n + t->next->n;
+	if (t->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	ax = t->next->n / t->n;
 	t->next->n = ax;
 	*head = t->next;
 	free(t);
