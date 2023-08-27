@@ -4,8 +4,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <ctype.h>
 #define MAX_STACK_SIZE 100
 #define STACK_SIZE 100
+
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -49,21 +56,28 @@ Stack* createStack() {
     return newStack;
 }
 
-/*
+typedef struct bus_p
+{
+	char *content;
+	char *arg;
+	int lifi;
+	FILE *file;
+}  bus_m;
+extern bus_m bus;
+
+
 typedef struct Node {
     int data;
+    struct Node* top;
     struct Node* next;
 } Node;
 
-typedef struct {
-    Node* top;
-} Stack;
-*/
 
 /*
 void push_opcode(stack_t **head, unsigned int counter);
 void pall_opcode(stack_t **head, unsigned int counter);*/
-
+void free_stack(stack_t *head);
+int stack_is_empty(stack_t *head);
 void swap(Stack* stack);
 int isEmpty(Stack* stack);
 /*void push(Stack* stack, int value);*/
