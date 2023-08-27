@@ -49,12 +49,24 @@ Stack* createStack() {
     return newStack;
 }
 
+/*
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+typedef struct {
+    Node* top;
+} Stack;
+*/
+
+/*
 void push_opcode(stack_t **head, unsigned int counter);
-void pall_opcode(stack_t **head, unsigned int counter);
+void pall_opcode(stack_t **head, unsigned int counter);*/
 
 void swap(Stack* stack);
 int isEmpty(Stack* stack);
-void push(Stack* stack, int value);
+/*void push(Stack* stack, int value);*/
 int pop(Stack* stack);
 
 /*
