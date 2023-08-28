@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	f = fopen(argv[1], "r");
-	bus.f = f;
+	bus.file = f;
 	if (!f)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	{
 		cont = NULL;
 		read_line = getline(&cont, &sz, f);
-		bus.cont = cont;
+		bus.content = cont;
 		counter++;
 		if (read_line > 0)
 		{

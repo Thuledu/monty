@@ -9,7 +9,7 @@
 */
 void swap_opcode(stack_t **head, unsigned int counter)
 {
-	stack_t *head;
+	stack_t *t;
 	int length = 0;
 	int ax;
 

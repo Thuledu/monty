@@ -9,17 +9,18 @@
  */
 void pall_opcode(stack_t **head, unsigned int counter)
 {
-	stack_t *head;
+	stack_t *t;
 	(void)counter;
-
-	if (head == NULL)
+	
+	t = *head;
+	if (t == NULL)
 	{
 		return;
 	}
 
-	while (head)
+	while (t)
 	{
-		printf("%d\n", head->n);
-		head = head->next;
+		printf("%d\n", t->n);
+		t = t->next;
 	}
 }

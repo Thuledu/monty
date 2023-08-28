@@ -9,8 +9,8 @@
 */
 void pop_opcode(stack_t **head, unsigned int counter)
 {
-	stack_t *head;
-
+	stack_t *t;
+	
 	if (*head == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
@@ -19,7 +19,7 @@ void pop_opcode(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	*head = n
-	*head = n->next;
-	free(n);
+	t = *head;
+	*head = t->next;
+	free(t);
 }

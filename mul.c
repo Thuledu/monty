@@ -9,9 +9,9 @@
 */
 void mul_opcode(stack_t **head, unsigned int counter)
 {
-	stack_t *head;
+	stack_t *t;
 	int ax;
-	int len = 0;
+	int length = 0;
 
 	t = *head;
 	while (t)

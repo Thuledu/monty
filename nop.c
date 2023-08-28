@@ -8,6 +8,6 @@
   *Return: void
  */
 void nop_opcode(stack_t **head, unsigned int counter) {
-    void counter = 0;
-    void head = 0;
+    int counter;
+    stack_t head;
 }

@@ -10,7 +10,7 @@
 */
 void mod_opcode(stack_t **head, unsigned int counter)
 {
-	stack_t *head;
+	stack_t *t;
 	int ax;
 	int length = 0;
        
