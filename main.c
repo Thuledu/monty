@@ -1,7 +1,7 @@
 #include "monty.h"
 #include <stdio.h>
 
-bus_m bus = {NULL, NULL, NULL, 0};
+bus_m bus = {NULL, NULL, 0};
 /**
 * main - monty code interpreter
 * @argc: number of arguments
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	while (read_line > 0)
 	{
 		cont = NULL;
-		read_line = getline(&cont, &sz, f);
+		read_line = gets(&cont, &sz, f);
 		bus.content = cont;
 		counter++;
 		if (read_line > 0)

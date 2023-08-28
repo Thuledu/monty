@@ -44,27 +44,14 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t; 
 
-/*
-typedef struct {
-    int stack[STACK_SIZE];
-    int top;
-} Stack;
-
-Stack* createStack() {
-    Stack* newStack = (Stack*)malloc(sizeof(Stack));
-    newStack->top = -1;
-    return newStack;
-}
-*/
-
 
 /**
- * struct bus_s - variables -args, file, line content
- * @arg: value
- * @file: pointer to monty file
- * @content: line content
- * @lifi: flag change stack <-> queue
- * Description: carries values through the program
+ * struct bus_p - the variables; args, file, line content
+ * @arg: the value
+ * @file: the pointer to monty file
+ * @content: the line content
+ * @lifi: the flag change stack <-> queue
+ * Description: it carries values through the program
  */
 typedef struct bus_p
 {
